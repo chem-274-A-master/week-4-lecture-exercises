@@ -20,7 +20,7 @@ Write your code below:
 """
 
 def find_common_elements(set_A, set_B):
-    return set_A.intersection(set_B)    
+    pass  
 
 # Example usage:
 set_A = {"CH4", "CH3-CH=O", "CHCH", "COP1OCCCO1", "CC(C)(C)P(C(C)(C)C)C12C3C4C5C1[Fe]45321678C2(c3ccc(C(F)(F)F)cc3)C1(c1ccc(C(F)(F)F)cc1)C6(c1ccc(C(F)(F)F)cc1)C7(c1ccc(C(F)(F)F)cc1)C28c1ccc(C(F)(F)F)cc1",
