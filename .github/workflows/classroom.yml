@@ -1,7 +1,7 @@
 name: Autograding Tests
 'on':
-- push
-- repository_dispatch
+  - push
+  - repository_dispatch
 permissions:
   checks: write
   actions: read
@@ -11,131 +11,135 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Introspection01
-      id: introspection-01
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Introspection01
-        command: pytest -vk "Introspection01"
-        timeout: 20
-        max-score: 1
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Install dependencies
+        run: |
+          pip install pytest
 
-    - name: DataTypes01
-      id: datatypes-01
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: DataTypes01
-        command: 
-        timeout: 20
-        max-score: 1
+      - name: Introspection01 Test
+        id: introspection_01
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Introspection01
+          command: pytest -vk "Introspection01"
+          timeout: 20
+          max-score: 1
 
-    - name: DataTypes02
-      id: datatypes-02
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: DataTypes02
-        command: pytest -vk "DataTypes02"
-        timeout: 20
-        max-score: 1
+      - name: DataTypes01 Test
+        id: datatypes_01
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: DataTypes01
+          command: pytest -vk "DataTypes01"
+          timeout: 20
+          max-score: 1
 
-    - name: DataTypes03
-      id: datatypes-03
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: DataTypes03
-        command: pytest -vk "DataTypes03"
-        timeout: 20
-        max-score: 1
+      - name: DataTypes02 Test
+        id: datatypes_02
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: DataTypes02
+          command: pytest -vk "DataTypes02"
+          timeout: 20
+          max-score: 1
 
-    - name: DataTypes04
-      id: datatypes-04
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: DataTypes04
-        command: pytest -vk "DataTypes04"
-        timeout: 20
-        max-score: 1
+      - name: DataTypes03 Test
+        id: datatypes_03
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: DataTypes03
+          command: pytest -vk "DataTypes03"
+          timeout: 20
+          max-score: 1
 
-    - name: DataTypes05
-      id: datatypes-05
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: DataTypes05
-        command: pytest -vk "DataTypes05"
-        timeout: 20
-        max-score: 1
+      - name: DataTypes04 Test
+        id: datatypes_04
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: DataTypes04
+          command: pytest -vk "DataTypes04"
+          timeout: 20
+          max-score: 1
 
-    - name: DataTypes06
-      id: datatypes-06
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: DataTypes06
-        command: pytest -vk "DataTypes06"
-        timeout: 20
-        max-score: 1
+      - name: DataTypes05 Test
+        id: datatypes_05
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: DataTypes05
+          command: pytest -vk "DataTypes05"
+          timeout: 20
+          max-score: 1
 
-    - name: DataTypes07
-      id: datatypes-07
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: DataTypes07
-        command: pytest -vk "DataTypes07"
-        timeout: 20
-        max-score: 1
+      - name: DataTypes06 Test
+        id: datatypes_06
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: DataTypes06
+          command: pytest -vk "DataTypes06"
+          timeout: 20
+          max-score: 1
 
-    - name: CommonTools01
-      id: commontools-01
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: CommonTools01
-        command: bash tests/test_common_tools.sh CommonTools01
-        timeout: 20
-        max-score: 1
+      - name: DataTypes07 Test
+        id: datatypes_07
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: DataTypes07
+          command: pytest -vk "DataTypes07"
+          timeout: 20
+          max-score: 1
 
-    - name: CommonTools02
-      id: commontools-02
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: CommonTools02
-        command: bash tests/test_common_tools.sh CommonTools02
-        timeout: 20
-        max-score: 1
+      - name: CommonTools01 Test
+        id: commontools_01
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: CommonTools01
+          command: bash tests/test_common_tools.sh CommonTools01
+          timeout: 20
+          max-score: 1
 
-    - name: CommonTools03
-      id: commontools-03
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: CommonTools03
-        command: bash tests/test_common_tools.sh CommonTools03
-        timeout: 20
-        max-score: 1
+      - name: CommonTools02 Test
+        id: commontools_02
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: CommonTools02
+          command: bash tests/test_common_tools.sh CommonTools02
+          timeout: 20
+          max-score: 1
 
-    - name: CommonTools04
-      id: commontools-04
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: CommonTools04
-        command: bash tests/test_common_tools.sh CommonTools04
-        timeout: 20
-        max-score: 1
+      - name: CommonTools03 Test
+        id: commontools_03
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: CommonTools03
+          command: bash tests/test_common_tools.sh CommonTools03
+          timeout: 20
+          max-score: 1
 
-    - name: Autograding Reporter
-      uses: classroom-resources/autograding-grading-reporter@v1
-      env:
-        INTROSPECTION01_RESULTS: "${{steps.introspection-01.outputs.result}}"
-        DATATYPES01_RESULTS: "${{steps.datatypes-01.outputs.result}}"
-        DATATYPES02_RESULTS: "${{steps.datatypes-02.outputs.result}}"
-        DATATYPES03_RESULTS: "${{steps.datatypes-03.outputs.result}}"
-        DATATYPES04_RESULTS: "${{steps.datatypes-04.outputs.result}}"
-        DATATYPES05_RESULTS: "${{steps.datatypes-05.outputs.result}}"
-        DATATYPES06_RESULTS: "${{steps.datatypes-06.outputs.result}}"
-        DATATYPES07_RESULTS: "${{steps.datatypes-07.outputs.result}}"
-        COMMONTOOLS01_RESULTS: "${{steps.commontools-01.outputs.result}}"
-        COMMONTOOLS02_RESULTS: "${{steps.commontools-02.outputs.result}}"
-        COMMONTOOLS03_RESULTS: "${{steps.commontools-03.outputs.result}}"
-        COMMONTOOLS04_RESULTS: "${{steps.commontools-04.outputs.result}}"
-      with:
-        runners: introspection-01,datatypes-01,datatypes-02,datatypes-03,datatypes-04,datatypes-05,datatypes-06,datatypes-07,commontools-01,commontools-02,commontools-03,commontools-04
+      - name: CommonTools04 Test
+        id: commontools_04
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: CommonTools04
+          command: bash tests/test_common_tools.sh CommonTools04
+          timeout: 20
+          max-score: 1
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          INTROSPECTION_01_RESULTS: "${{steps.introspection_01.outputs.result}}"
+          DATATYPES_01_RESULTS: "${{steps.datatypes_01.outputs.result}}"
+          DATATYPES_02_RESULTS: "${{steps.datatypes_02.outputs.result}}"
+          DATATYPES_03_RESULTS: "${{steps.datatypes_03.outputs.result}}"
+          DATATYPES_04_RESULTS: "${{steps.datatypes_04.outputs.result}}"
+          DATATYPES_05_RESULTS: "${{steps.datatypes_05.outputs.result}}"
+          DATATYPES_06_RESULTS: "${{steps.datatypes_06.outputs.result}}"
+          DATATYPES_07_RESULTS: "${{steps.datatypes_07.outputs.result}}"
+          COMMONTOOLS_01_RESULTS: "${{steps.commontools_01.outputs.result}}"
+          COMMONTOOLS_02_RESULTS: "${{steps.commontools_02.outputs.result}}"
+          COMMONTOOLS_03_RESULTS: "${{steps.commontools_03.outputs.result}}"
+          COMMONTOOLS_04_RESULTS: "${{steps.commontools_04.outputs.result}}"
+        with:
+          runners: introspection_01,datatypes_01,datatypes_02,datatypes_03,datatypes_04,datatypes_05,datatypes_06,datatypes_07,commontools_01,commontools_02,commontools_03,commontools_04
