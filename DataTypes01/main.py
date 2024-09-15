@@ -7,11 +7,10 @@ the largest possible integer is returned. For example, using floored division 7 
 Refer to the table under the Python documentation for numerics 
 https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex
 
-Write code to perform floor division between x and y
+Write a function that takes two integers x and y and returns the floored division of x by y.
 """
 
-x = 25
-y = 8
-
-# Write your code here
-floor = 
+# edit the function to perform floored division
+def floored_division(x, y):
+    """Perform floored division of x by y"""
+    pass

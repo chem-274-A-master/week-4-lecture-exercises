@@ -17,24 +17,21 @@ Tasks:
        object that starts with the letter "c".
 """
 
+import os
 import pickle
 
-obj = pickle.load(open("object.pkl", "rb"))
+# This makes sure the pickle file is read from the correct directory
+# you can ignore this part
+script_dir = os.path.dirname(os.path.realpath(__file__))
+pickle_path = os.path.join(script_dir, "object.pkl")
+
+with open(pickle_path, "rb") as f:
+    obj = pickle.load(f)
 
 # Task 1: Use an introspection function to determine the type of obj.
-print("Your output here for task 1")
-
-# Task 2: Use another introspection function to find a method in obj that begins with the letter "c".
-print("Your output here for task 2")
-
-
-import pickle
-
-obj = pickle.load(open("object.pkl", "rb"))
-
-# Print the type of obj. The data type will look like "<class 'something'>" write only what is in 'something' in the print statement.
+# Print your output in the format 'something', extracted from "<class 'something'>"
 print("")
 
-# Print the name of the method in obj that begins with the letter "c".
+# Task 2: Use another introspection function to find a method in obj that begins with the letter "c".
 print("")
 

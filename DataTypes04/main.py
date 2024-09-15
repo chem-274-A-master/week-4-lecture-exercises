@@ -1,42 +1,30 @@
 """
-Tuple Exercise
+String Exercise
 
-Since tuples are immutable, you can't sort them in the same way you can sort lists. 
-Recall that you can sort lists by using list.sort().
+Strings have a number of built-in methods like .lower(), 
+which converts a string to lowercase and .upper(), which converts a string to uppercase.
 
-You can, however, use a Python built-in function called `sorted` to sort a tuple.
+Sometimes when comparing strings, we do not want the capitalization to matter
+(for example, 'Cat' should be considered equivalent to 'cat'). 
+You can compare only letters in two strings by calling either .upper() or .lower() on both strings.
 
-sorted_result = sorted(some_tuple)
-
-The `sorted` function returns a new list containing all items from the original tuple,
-arranged from the lowest to highest.
-
-For this task, your overall goal is to find the index of the third lowest value in the original tuple.
-
-1. Use `sorted` on the numbers tuple.
-2. Use indexing to retrieve the third lowest value.
-3. Use an appropriate tuple method to retrieve the index of the third lowest value in the original tuple.
-
+Write a function called `string_compare`. The function should take in two strings and return True if the two strings are the same. 
+It should take an optional argument `case_sensitive` which should have the default value of False. 
+If `case_sensitive` is True, the capitalization of the two strings should have to match.
 """
 
-numbers = ( 2.4600e02,
-    0.0000e00,
-    7.7100e01,
-    1.5690e02,
-    -4.3680e02,
-    -3.3400e01,
-    -1.1200e01,
-    -4.0700e01,
-    -9.6900e01,
-    -1.0980e02,
-    -1.8700e02,
-    -6.6200e01,
-    2.8940e02,
-    0.0000e00,
-    -1.5823e03,
-    -1.4311e03)
+# Write your function here
+# you should modify the function arguments
+def string_compare():
+  pass
+    
+    
+if __name__ == "__main__":
 
-## Write your code here
+  # Example usage
 
-# Store your answer in the index variable
-index = 
+  # This should be True
+  print(string_compare("energy", "Energy"))
+
+  # This should be False
+  print(string_compare("CH4", "Ch4", case_sensitive=True))
