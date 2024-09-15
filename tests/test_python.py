@@ -1,4 +1,4 @@
-import dis
+import inspect
 import os
 import sys
 import subprocess
@@ -216,19 +216,18 @@ def test_DataTypes06():
 
 def test_DataTypes07():
 
-    # internal function to check if the function uses .items()
+    # Internal function to check if the function uses .items() by inspecting the source code
     def check_items_usage(func):
-        instructions = dis.get_instructions(func)
-        for instr in instructions:
-            if instr.opname == 'LOAD_ATTR' and instr.argval == 'items':
-                return True
-        return False
+        # Get the source code of the function
+        source_code = inspect.getsource(func)
+        # Check if '.items()' is present in the source code
+        return '.items()' in source_code
 
-    # add exercise directory to the path
+    # Add exercise directory to the path
     exercise_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "DataTypes07"))
     sys.path.append(exercise_dir)
 
-    # import the function
+    # Import the function
     from main import find_gases
 
     # Test case 1: Standard case with hydrocarbons
@@ -246,7 +245,7 @@ def test_DataTypes07():
     expected = ['methane', 'ethane', 'propane', 'butane']
     assert result == expected, f"Expected {expected}, but got {result}"
 
-    # Check if the function uses .items() by inspecting the bytecode
+    # Check if the function uses .items() by inspecting the source code
     assert check_items_usage(find_gases), "The function must use the .items() method to iterate through the dictionary"
 
 
