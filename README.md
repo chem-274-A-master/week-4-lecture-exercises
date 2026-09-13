@@ -51,17 +51,20 @@ The starter code is intentionally incomplete, so tests will fail at first.
 The grader runs every exercise separately, prints a summary, and writes a
 machine-readable report to `grading-results.json`.
 
+Use the grading script instead of `pytest -v` to run the complete suite; it
+runs each Python exercise separately and includes the command-line tests.
+
 Run an individual Python exercise with its corresponding command:
 
 ```bash
-python -m pytest -v -k test_introspection01
-python -m pytest -v -k test_DataTypes01
-python -m pytest -v -k test_DataTypes02
-python -m pytest -v -k test_DataTypes03
-python -m pytest -v -k test_DataTypes04
-python -m pytest -v -k test_DataTypes05
-python -m pytest -v -k test_DataTypes06
-python -m pytest -v -k test_DataTypes07
+pytest -v -k test_introspection01
+pytest -v -k test_DataTypes01
+pytest -v -k test_DataTypes02
+pytest -v -k test_DataTypes03
+pytest -v -k test_DataTypes04
+pytest -v -k test_DataTypes05
+pytest -v -k test_DataTypes06
+pytest -v -k test_DataTypes07
 ```
 
 Run an individual command-line exercise with its corresponding command:
